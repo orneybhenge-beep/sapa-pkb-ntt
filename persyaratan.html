@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Persyaratan Pembayaran PKB - SAPA PKB SIKKa</title>
+<style>
+:root{
+  --navy:#082b4c;
+  --blue:#0b4ea2;
+  --blue2:#174da8;
+  --soft:#eef6ff;
+  --line:#bdd5f0;
+  --text:#15283a;
+  --muted:#536678;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#eaf3fc;
+}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:30;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:4px;
+  padding:12px 18px;
+  background:rgba(8,43,76,.98);
+  box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+.nav a{
+  color:#fff;
+  text-decoration:none;
+  padding:11px 14px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:700;
+}
+.nav a:hover,.nav a.active{background:#1769c2}
+.page{
+  max-width:1180px;
+  margin:0 auto;
+  padding:22px 16px 55px;
+}
+.poster{
+  background:#fff;
+  border:2px solid #b9d4ef;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(8,43,76,.12);
+}
+.hero{
+  position:relative;
+  min-height:310px;
+  padding:42px 42px 38px;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 30%,rgba(255,255,255,.95) 0 9%,transparent 10%),
+    linear-gradient(135deg,#fafdff 0%,#eaf5ff 55%,#d8ebfc 100%);
+}
+.hero:after{
+  content:"🏢";
+  position:absolute;
+  right:45px;
+  bottom:10px;
+  font-size:180px;
+  opacity:.12;
+}
+.hero h1{
+  position:relative;
+  z-index:2;
+  margin:0;
+  color:#173d83;
+  font-size:clamp(38px,6vw,70px);
+  line-height:.98;
+  letter-spacing:-2px;
+  text-transform:uppercase;
+}
+.hero h1 span{
+  display:block;
+  font-size:clamp(25px,4vw,43px);
+  margin-top:13px;
+  letter-spacing:-1px;
+}
+.hero p{
+  position:relative;
+  z-index:2;
+  max-width:650px;
+  margin:25px 0 0;
+  font-size:19px;
+  line-height:1.55;
+}
+.wave{
+  height:42px;
+  background:linear-gradient(170deg,#d7eaff 0 48%,#fff 49% 100%);
+  border-top:1px solid #c8def4;
+}
+.ribbon{
+  width:min(640px,88%);
+  margin:-13px auto 20px;
+  position:relative;
+  z-index:4;
+  text-align:center;
+  padding:13px 20px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#123f98,#073c93);
+  color:#fff;
+  font-size:clamp(22px,3vw,32px);
+  font-weight:900;
+  text-transform:uppercase;
+  box-shadow:0 8px 18px rgba(8,43,76,.2);
+}
+.requirements{
+  padding:0 28px 28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.card{
+  min-height:365px;
+  border:1.5px solid #b8d3f0;
+  border-radius:19px;
+  background:linear-gradient(180deg,#fff,#f9fcff);
+  padding:20px;
+  position:relative;
+  overflow:hidden;
+}
+.card.full{
+  grid-column:1/-1;
+  min-height:230px;
+}
+.badge{
+  display:inline-flex;
+  width:50px;height:50px;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#164ea6,#07377e);
+  color:#fff;
+  font-size:25px;
+  font-weight:900;
+  vertical-align:middle;
+}
+.card h2{
+  display:inline-block;
+  vertical-align:middle;
+  margin:0 0 0 10px;
+  color:#123e84;
+  font-size:23px;
+  text-transform:uppercase;
+}
+.card p{
+  margin:12px 0 18px 62px;
+  line-height:1.55;
+  font-size:16px;
+}
+.illustration{
+  height:180px;
+  margin:0 8px;
+  border-radius:15px;
+  background:linear-gradient(145deg,#e5f2ff,#f8fbff);
+  border:1px solid #c8def2;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+.bigicon{font-size:92px}
+.phone{
+  font-size:70px;
+}
+.bpkb{
+  font-size:75px;
+}
+.full-content{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  align-items:center;
+}
+.full .illustration{height:180px}
+.warning{
+  padding:22px;
+  border-radius:16px;
+  background:#eaf3ff;
+  color:#173d83;
+  font-weight:600;
+  line-height:1.55;
+}
+.tips{
+  margin:0 28px 25px;
+  padding:25px 28px;
+  border:1.5px solid #b8d3f0;
+  border-radius:20px;
+  background:linear-gradient(120deg,#eaf4ff,#f9fcff);
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+.tip-icon{
+  flex:0 0 88px;
+  width:88px;height:88px;
+  border-radius:50%;
+  background:#123f98;
+  color:#fff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:48px;
+}
+.tips h2{
+  margin:0 0 12px;
+  color:#123e84;
+  text-transform:uppercase;
+}
+.tips ul{
+  margin:0;
+  padding-left:22px;
+  line-height:1.8;
+}
+.note{
+  margin:0 28px 28px;
+  padding:12px 18px;
+  background:#123f98;
+  color:#fff;
+  border-radius:14px;
+  text-align:center;
+  font-size:15px;
+}
+.buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  padding:0 28px 30px;
+}
+.btn{
+  text-decoration:none;
+  color:#fff;
+  background:#0b4ea2;
+  padding:13px 18px;
+  border-radius:10px;
+  font-weight:700;
+}
+.btn.secondary{
+  background:#fff;
+  color:#0b4ea2;
+  border:1px solid #0b4ea2;
+}
+footer{
+  text-align:center;
+  padding:25px 10px;
+  color:#5a6d7d;
+}
+@media(max-width:850px){
+  .requirements{grid-template-columns:1fr 1fr}
+  .card.full{grid-column:1/-1}
+  .full-content{grid-template-columns:1fr}
+}
+@media(max-width:580px){
+  .requirements{grid-template-columns:1fr;padding:0 14px 18px}
+  .card.full{grid-column:auto}
+  .hero{padding:30px 24px}
+  .hero:after{right:-15px;font-size:120px}
+  .tips{margin:0 14px 18px;padding:20px}
+  .note{margin:0 14px 20px}
+  .buttons{padding:0 14px 25px}
+  .card p{margin-left:0}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="informasi-pkb.html">🚗 Informasi PKB</a>
+  <a href="jatuh-tempo.html">📅 Jatuh Tempo</a>
+  <a href="pembayaran.html">💳 Pembayaran</a>
+  <a class="active" href="persyaratan.html">📋 Persyaratan</a>
+  <a href="faq.html">❓ FAQ</a>
+  <a href="hubungi-kami.html">📞 Hubungi Kami</a>
+</nav>
+
+<main class="page">
+<div class="poster">
+
+  <section class="hero">
+    <h1>Persyaratan
+      <span>Pembayaran Pajak Kendaraan Bermotor (PKB)</span>
+    </h1>
+    <p>
+      Siapkan dokumen berikut sebelum datang ke Kantor Samsat
+      untuk memperlancar proses pembayaran Pajak Kendaraan Bermotor.
+    </p>
+  </section>
+
+  <div class="wave"></div>
+
+  <div class="ribbon">Dokumen yang Harus Dibawa</div>
+
+  <section class="requirements">
+
+    <article class="card">
+      <span class="badge">1</span>
+      <h2>KTP Pemilik</h2>
+      <p>KTP asli pemilik kendaraan bermotor yang masih berlaku.</p>
+      <div class="illustration">
+        <div>
+          <div class="bigicon">🪪</div>
+          <strong>KARTU TANDA PENDUDUK</strong>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="badge">2</span>
+      <h2>STNK Asli</h2>
+      <p>Surat Tanda Nomor Kendaraan Bermotor (STNK) asli.</p>
+      <div class="illustration">
+        <div>
+          <div class="bigicon">📄</div>
+          <strong>STNK KENDARAAN</strong>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <span class="badge">3</span>
+      <h2>Nomor HP</h2>
+      <p>Cantumkan nomor HP aktif Wajib Pajak untuk keperluan informasi dan notifikasi.</p>
+      <div class="illustration">
+        <div>
+          <div class="phone">📱</div>
+          <strong>NO. HP AKTIF</strong>
+        </div>
+      </div>
+    </article>
+
+    <article class="card full">
+      <div class="full-content">
+        <div>
+          <span class="badge">4</span>
+          <h2>Sertakan BPKB</h2>
+          <p>
+            <strong>Apabila ingin perpanjang STNK.</strong><br>
+            Bawa BPKB asli apabila Anda akan melakukan perpanjangan
+            STNK (setiap 5 tahun).
+          </p>
+        </div>
+        <div class="illustration">
+          <div>
+            <div class="bpkb">📘</div>
+            <strong>BUKU PEMILIK KENDARAAN BERMOTOR (BPKB)</strong>
+          </div>
+        </div>
+      </div>
+      <div class="warning">
+        ⚠️ <strong>Perhatian:</strong> Jika tidak melakukan perpanjangan
+        STNK 5 tahunan, BPKB tidak diperlukan untuk pembayaran PKB tahunan.
+      </div>
+    </article>
+
+  </section>
+
+  <section class="tips">
+    <div class="tip-icon">✓</div>
+    <div>
+      <h2>Tips Penting</h2>
+      <ul>
+        <li>Pastikan semua dokumen asli dan masih berlaku.</li>
+        <li>Periksa kelengkapan dokumen sebelum berangkat ke Kantor Samsat.</li>
+        <li>Informasi yang dicantumkan harus sesuai dengan data kendaraan.</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="note">
+    ℹ️ Catatan: Ketentuan dapat berubah sewaktu-waktu sesuai kebijakan yang berlaku.
+  </div>
+
+  <div class="buttons">
+    <a class="btn" href="pembayaran.html">💳 Lihat Langkah Pembayaran</a>
+    <a class="btn secondary" href="hubungi-kami.html">📞 Hubungi Kami</a>
+  </div>
+
+</div>
+
+<footer>
+  <strong>SAPA PKB SIKKa</strong><br>
+  Media Edukasi Digital Pajak Kendaraan Bermotor
+</footer>
+</main>
+
+</body>
+</html>

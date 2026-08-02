@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pembayaran PKB - SAPA PKB SIKKa</title>
+<style>
+:root{
+  --navy:#082b4c;
+  --blue:#0b4ea2;
+  --blue2:#1769c2;
+  --light:#f4f8fb;
+  --text:#15283a;
+  --muted:#607080;
+  --white:#fff;
+  --gold:#f4c542;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  background:#eef5fb;
+}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:20;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:4px;
+  padding:12px 18px;
+  background:rgba(8,43,76,.97);
+  box-shadow:0 4px 18px rgba(0,0,0,.15);
+}
+.nav a{
+  color:white;
+  text-decoration:none;
+  padding:11px 15px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+}
+.nav a:hover,.nav a.active{background:#1769c2}
+.page{
+  max-width:1150px;
+  margin:0 auto;
+  padding:28px 18px 60px;
+}
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:22px;
+  background:linear-gradient(135deg,#eaf5ff,#fff);
+  border:1px solid #c8ddf2;
+  padding:42px 44px 38px;
+  box-shadow:0 12px 35px rgba(8,43,76,.12);
+}
+.hero:after{
+  content:"💳";
+  position:absolute;
+  right:45px;
+  top:25px;
+  font-size:100px;
+  opacity:.12;
+}
+.hero h1{
+  margin:0 0 12px;
+  color:#123b72;
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.05;
+  text-transform:uppercase;
+}
+.hero h1 span{color:var(--blue)}
+.hero p{
+  max-width:760px;
+  font-size:18px;
+  line-height:1.65;
+  margin:0;
+}
+.notice{
+  margin-top:22px;
+  padding:15px 18px;
+  background:#fff;
+  border-left:5px solid var(--gold);
+  border-radius:10px;
+  box-shadow:0 5px 16px rgba(0,0,0,.07);
+}
+.steps{
+  margin-top:28px;
+  background:#fff;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 10px 30px rgba(8,43,76,.10);
+}
+.step{
+  display:grid;
+  grid-template-columns:95px 1.1fr 1fr;
+  gap:22px;
+  align-items:center;
+  padding:28px 30px;
+  border-bottom:1px solid #dbe7f2;
+}
+.step:last-child{border-bottom:0}
+.number{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:white;
+  font-size:36px;
+  font-weight:800;
+  background:linear-gradient(145deg,#0b4ea2,#073a7d);
+  box-shadow:0 6px 15px rgba(11,78,162,.25);
+}
+.step h2{
+  margin:0 0 10px;
+  color:#104487;
+  font-size:22px;
+  text-transform:uppercase;
+}
+.step p{
+  margin:0;
+  line-height:1.6;
+  font-size:16px;
+}
+.visual{
+  min-height:145px;
+  border-radius:15px;
+  background:linear-gradient(145deg,#f4f8fb,#e4eff9);
+  border:1px solid #d6e4f1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  text-align:center;
+}
+.visual .icon{font-size:65px;display:block;margin-bottom:8px}
+.visual strong{display:block;color:#104487;font-size:18px}
+.tip{
+  margin:28px 0 0;
+  padding:24px;
+  background:#082b4c;
+  color:white;
+  border-radius:18px;
+}
+.tip h2{margin:0 0 8px}
+.tip p{margin:0;line-height:1.6}
+.buttons{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
+}
+.btn{
+  display:inline-block;
+  padding:13px 18px;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  background:#0b4ea2;
+  color:#fff;
+}
+.btn.secondary{background:#fff;color:#0b4ea2;border:1px solid #0b4ea2}
+footer{
+  text-align:center;
+  color:#607080;
+  padding:30px 15px;
+}
+@media(max-width:800px){
+  .step{grid-template-columns:72px 1fr}
+  .visual{grid-column:1/-1}
+  .hero{padding:30px 24px}
+}
+@media(max-width:520px){
+  .step{grid-template-columns:1fr;padding:24px 18px}
+  .number{width:58px;height:58px;font-size:28px}
+  .hero h1{font-size:34px}
+  .nav a{font-size:12px;padding:9px 10px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <a href="index.html">🏠 Beranda</a>
+  <a href="informasi-pkb.html">🚗 Informasi PKB</a>
+  <a href="jatuh-tempo.html">📅 Jatuh Tempo</a>
+  <a class="active" href="pembayaran.html">💳 Pembayaran</a>
+  <a href="persyaratan.html">📋 Persyaratan</a>
+  <a href="faq.html">❓ FAQ</a>
+  <a href="hubungi-kami.html">📞 Hubungi Kami</a>
+</nav>
+
+<main class="page">
+  <section class="hero">
+    <h1>Langkah Pembayaran<br><span>Pajak Kendaraan Bermotor (PKB)</span></h1>
+    <p>
+      Ikuti langkah-langkah berikut untuk memudahkan proses pembayaran
+      Pajak Kendaraan Bermotor (PKB) di Kantor Samsat sesuai domisili kendaraan.
+    </p>
+    <div class="notice">
+      <strong>💡 Catatan:</strong> Siapkan dokumen dan persyaratan yang diperlukan
+      sebelum datang ke Kantor Samsat agar pelayanan berjalan lebih cepat.
+    </div>
+  </section>
+
+  <section class="steps">
+
+    <article class="step">
+      <div class="number">1</div>
+      <div>
+        <h2>🏢 Datang ke Kantor Samsat</h2>
+        <p>
+          Wajib Pajak datang ke Kantor Samsat sesuai domisili kendaraan.
+          Pastikan membawa kendaraan dan dokumen yang diperlukan untuk proses pelayanan.
+        </p>
+      </div>
+      <div class="visual">
+        <div>
+          <span class="icon">🏢</span>
+          <strong>KANTOR SAMSAT</strong>
+          <span>Mulai proses pelayanan PKB.</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">2</div>
+      <div>
+        <h2>📝 Menuju Loket 1</h2>
+        <p>
+          Wajib Pajak menuju <strong>Loket 1 (Pendaftaran)</strong>
+          untuk memulai proses pelayanan dan menyerahkan dokumen awal.
+        </p>
+      </div>
+      <div class="visual">
+        <div>
+          <span class="icon">🧾</span>
+          <strong>LOKET 1 — PENDAFTARAN</strong>
+          <span>Pendaftaran dan penerimaan awal persyaratan.</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">3</div>
+      <div>
+        <h2>🔎 Serahkan Persyaratan & Verifikasi</h2>
+        <p>
+          Serahkan persyaratan kepada petugas. Petugas akan melakukan
+          verifikasi dokumen dan mencetak kwitansi pembayaran.
+          Setelah selesai, Wajib Pajak diarahkan menuju Loket 2 (Kasir).
+        </p>
+      </div>
+      <div class="visual">
+        <div>
+          <span class="icon">📄</span>
+          <strong>VERIFIKASI DOKUMEN</strong>
+          <span>✓ Serahkan dokumen<br>✓ Verifikasi<br>✓ Cetak kwitansi</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">4</div>
+      <div>
+        <h2>💰 Lakukan Pembayaran di Loket 2</h2>
+        <p>
+          Lakukan pembayaran sesuai jumlah yang tertera pada kwitansi
+          di <strong>Loket 2 (Kasir)</strong>. Simpan bukti pembayaran dengan baik.
+        </p>
+      </div>
+      <div class="visual">
+        <div>
+          <span class="icon">💳</span>
+          <strong>LOKET 2 — KASIR</strong>
+          <span>Pembayaran sesuai jumlah pada kwitansi.</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="step">
+      <div class="number">5</div>
+      <div>
+        <h2>📃 Ambil Notice Pajak di Loket 3</h2>
+        <p>
+          Setelah pembayaran selesai, tunggu hingga nama Anda dipanggil
+          untuk mengambil <strong>Notice Pajak</strong> pada Loket 3.
+        </p>
+      </div>
+      <div class="visual">
+        <div>
+          <span class="icon">📑</span>
+          <strong>LOKET 3 — PENYERAHAN NOTICE</strong>
+          <span>Ambil Notice Pajak setelah pembayaran selesai.</span>
+        </div>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="tip">
+    <h2>✅ Pembayaran Selesai</h2>
+    <p>
+      Periksa kembali Notice Pajak dan dokumen kendaraan sebelum meninggalkan
+      Kantor Samsat. Simpan bukti pembayaran sebagai arsip.
+    </p>
+    <div class="buttons">
+      <a class="btn" href="persyaratan.html">📋 Lihat Persyaratan</a>
+      <a class="btn secondary" href="jatuh-tempo.html">📅 Cek Jatuh Tempo</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>SAPA PKB SIKKa</strong><br>
+  Media Edukasi Digital Pajak Kendaraan Bermotor
+</footer>
+
+</body>
+</html>
